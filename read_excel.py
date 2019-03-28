@@ -7,7 +7,7 @@ SHEET_NAME = "デシジョンテーブル"
 
 # デシジョンテーブル開始列数
 TABLE_START_INDEX = 1
-# デシジョンテーブル内での条件/結果開始行数
+# デシジョンテーブル内での条件/結果開始列数
 CONDITION_COL_INDEX = 3
 # デシジョンテーブル内でのテスト項目開始列数
 TEST_COL_INDEX = 5
