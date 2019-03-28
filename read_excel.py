@@ -1,7 +1,7 @@
 import xlrd
 
 # Excelファイルパス
-FILE_PATH = "decision_table.xlsx"
+FILE_PATH = "./decision_table.xlsx"
 # Excelシート名
 SHEET_NAME = "デシジョンテーブル"
 
