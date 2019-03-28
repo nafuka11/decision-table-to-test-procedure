@@ -19,40 +19,40 @@ def main():
     sheet = book.sheet_by_name(SHEET_NAME)
 
     # テスト項目が存在する行のみ取得
-    rows = [sheet.row_values(y) for y in range(sheet.nrows)]
-    rows = [x[TABLE_START_INDEX:] for x in rows
-            if x[TEST_COL_INDEX + TABLE_START_INDEX] in ["Y", "N", "-"]]
+    sheet_rows = [sheet.row_values(y) for y in range(sheet.nrows)]
+    sheet_rows = [x[TABLE_START_INDEX:] for x in sheet_rows
+                  if x[TEST_COL_INDEX + TABLE_START_INDEX] in ["Y", "N", "-"]]
 
     # 条件～次の条件の1つ前の行でテーブルを区切る
     tests = []
     start_index = 0
-    for i in range(len(rows)):
-        if rows[i][0] != "条件" or start_index == i:
+    for i in range(len(sheet_rows)):
+        if sheet_rows[i][0] != "条件" or start_index == i:
             continue
-        tests.append(rows[start_index:i])
+        tests.append(sheet_rows[start_index:i])
         start_index = i
-    tests.append(rows[start_index:])
+    tests.append(sheet_rows[start_index:])
 
     # 標準出力にテスト手順を出力
     for test in tests:
         print_test_procedure(test)
 
 
-def print_test_procedure(rows):
+def print_test_procedure(table_rows):
     """標準出力にテスト手順を出力"""
     # セル結合により空文字となっている条件を補間する
-    for y in range(0, len(rows)):
-        for x in range(2, TEST_COL_INDEX):
-            if not rows[y][x] and y != 0 and rows[y - 1]:
-                rows[y][x] = rows[y - 1][x]
+    for row in range(0, len(table_rows)):
+        for col in range(2, TEST_COL_INDEX):
+            if not table_rows[row][col] and row != 0 and table_rows[row - 1]:
+                table_rows[row][col] = table_rows[row - 1][col]
 
     # テスト項目毎に
-    for test_no in range(TEST_COL_INDEX, len(rows[0])):
-        if not rows[0][test_no]:
+    for test_no in range(TEST_COL_INDEX, len(table_rows[0])):
+        if not table_rows[0][test_no]:
             break
         print("----------------------------------------")
         # デシジョンテーブルの行毎にテスト手順を標準出力する
-        for row in rows:
+        for row in table_rows:
             # 条件/結果
             if row[0]:
                 print(f"{row[0]}：")
