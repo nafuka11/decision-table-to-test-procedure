@@ -55,17 +55,17 @@ def print_test_procedure(table_rows):
         for row in table_rows:
             # 条件/結果
             if row[0]:
-                print(f"{row[0]}：")
+                print("{}：".format(row[0]))
             # テスト対象
             if row[1]:
-                print(f"　[{row[1]}]")
+                print("　[{}]".format(row[1]))
             # テスト内容
             if row[test_no] == "-":
                 continue
-            print(f"　　{row[test_no]}: {row[2]}", end="")
+            print("　　{}: {}".format(row[test_no], row[2]), end="")
             for cond_index in range(3, TEST_COL_INDEX):
                 if row[cond_index]:
-                    print(f": {row[cond_index]}", end="")
+                    print(": {}".format(row[cond_index]), end="")
             print()
 
 
