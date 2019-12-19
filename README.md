@@ -1,7 +1,6 @@
 # decision-table-to-test-procedure
 
 ## これは何？
-
 Excelのデシジョンテーブルを読込み、  
 標準出力にテスト手順を出力するスクリプトです。
 
@@ -16,14 +15,24 @@ Excelのデシジョンテーブルを読込み、
 ![テスト手順](https://user-images.githubusercontent.com/42476527/50581517-bc1a3800-0e9d-11e9-9b7d-93448d0303e3.png)
 
 
+## 必要物
+Python 3.4以上
+
 ## 使用方法
-1. read_excel.pyを任意のディレクトリに配置します。
-2. 入力用のExcelを作成し、任意のディレクトリに配置します。
-3. read_excel.py内の設定値を編集します。
-4. read_excel.pyを実行します。
-5. 標準出力にテスト手順が出力されます。
-
-
-## 制限事項
-1. Pythonパッケージ
-    - `xlrd` が必要になります（Excelファイル読み込みのため）
+1. ソースコードをclone
+   ```bash
+   git clone https://github.com/nafuka11/decision-table-to-test-procedure.git
+   ```
+2. 仮想環境を作成
+   ```bash
+   cd decision-table-to-test-procedure
+   python -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+3. `read_excel.py` の設定値を編集
+4. `read_excel.py` を実行
+   ```bash
+   python read_excel.py
+   ```
+   - 標準出力にテスト手順が出力されます。
