@@ -28,10 +28,13 @@ Python 3.4以上
    cd decision-table-to-test-procedure
    python -m venv venv
    source venv/bin/activate
+   ```
+3. 必要なパッケージをインストール
+   ```bash
    pip install -r requirements.txt
    ```
-3. `read_excel.py` の設定値を編集
-4. `read_excel.py` を実行
+4. `read_excel.py` の設定値を編集
+5. `read_excel.py` を実行
    ```bash
    python read_excel.py
    ```
